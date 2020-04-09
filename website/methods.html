@@ -44,7 +44,7 @@
 
       <script>
         $(function() {
-          $('#identicalTable').CSVToTable('/covid19data/200325.trimmed.noDup.fasta.identicalIDs.txt',{separator:"\t",headers: ['Name of the new combined sequences','Number of sequences merged','Names of the different strains merged']});
+          $('#identicalTable').CSVToTable('/covid19data/duplicateIds.txt',{separator:"\t",headers: ['Name of the new combined sequences','Number of sequences merged','Names of the different strains merged']});
         });
       </script>
       <div class="table-responsive">

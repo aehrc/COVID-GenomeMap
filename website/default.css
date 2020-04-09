@@ -1644,6 +1644,16 @@ hr
 	color: #8E8E8E;
 	font: 16px Arial;
 }
+.seq
+{
+	width : 20%;
+	font-weight: 500;
+	font-size: 1em;
+	color: #8E8E8E;
+	font: 16px Arial;
+	text-align: left;
+	position: relative;
+}
 
 ul.style1
 {
@@ -1777,7 +1787,9 @@ ul.contact li a.icon-rss:before
 }
 
 /** WRAPPER */
-
+#bokehContainer{
+		background: #2F2F2F url(images/bg01.jpg) repeat;
+}
 #wrapper
 {
 	background: #FFF;

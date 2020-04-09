@@ -502,14 +502,21 @@
       <div id="menu"> <!--#unlock these comments to add menu items.-->
   			<ul>
   				<li ><a href="index.html" accesskey="1" title="">Homepage</a></li>
-  				<li><a href="method.html" accesskey="2" title="">Methods</a></li>
+  				<li><a href="methods.html" accesskey="2" title="">Methods</a></li>
           <li class="current_page_item"><a href="#" accesskey="2" title="">Network</a></li>
   				<li><a href="contact.html" accesskey="3" title="">Contact Us</a></li>
   			</ul>
   		</div>
   	</div>
   </div>
+  <div id="wrapper">
+  	<div id="welcome" class="wrapper-style1">
+  		<div class="title">
+  			<h2>SARS-CoV-2 genome networks</h2>
+  			<span class="byline">Building upon the K-mer signature analysis we performed, we constructed a network representing the diversity among the SARS-CoV-2 genomes. Each point represents a single strain and the distance between them is the calculated euclidian distance, based on the k-mer signatures. By setting the threshold to filter out more distant relationships, we are able to investigate how the different strains are connected to each other. </span>
+      </div>
 
+<div id="bokehContainer">
 <script src="https://d3js.org/d3.v5.min.js"></script>
 
  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js" integrity="sha384-JpP8FXbgAZLkfur7LiK3j9AGBhHNIvF742meBJrjO2ShJDhCG2I1uVvW+0DUtrmc" crossorigin="anonymous"></script>
@@ -522,11 +529,11 @@
 
 
 
-<div class="bk-root" id="9919267e-6877-44a5-957e-449bc47bb1da" data-root-id="1001"></div>
+<div style="background-color:lightgray;padding:10px;" class="bk-root" id="9919267e-6877-44a5-957e-449bc47bb1da" data-root-id="1001"></div>
 
 
 
-<div class="bk-root" id="735f69e2-820e-44c2-87ec-7591e7402a68" data-root-id="1108"></div>
+<div style="background-color:lightgray;padding:10px;" id="735f69e2-820e-44c2-87ec-7591e7402a68" data-root-id="1108"></div>
 
 
 <script type="text/javascript">
@@ -534,7 +541,7 @@
 
 var docs_json;
 
-d3.json("/covid19data/network_data.json").then(function(data) {
+d3.json("/covid19data/network.json").then(function(data) {
 
   docs_json = data;
 
@@ -576,6 +583,10 @@ d3.json("/covid19data/network_data.json").then(function(data) {
 
 
 </script>
+</div>
+<div class="title"></div>
+</div>
+</div>
 <div id="footer" class="container">
 	<div>
 		<div>
