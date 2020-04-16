@@ -7,8 +7,8 @@ data aws_iam_policy_document cloudfront_website_access {
       "${aws_s3_bucket.website_bucket.arn}/*",
     ]
     principals {
-      type = "CanonicalUser"
-      identifiers = [aws_cloudfront_origin_access_identity.oai.s3_canonical_user_id]
+      type = "AWS"
+      identifiers = [aws_cloudfront_origin_access_identity.oai.iam_arn]
     }
   }
 
@@ -20,8 +20,8 @@ data aws_iam_policy_document cloudfront_website_access {
       aws_s3_bucket.website_bucket.arn,
     ]
     principals {
-      type = "CanonicalUser"
-      identifiers = [aws_cloudfront_origin_access_identity.oai.s3_canonical_user_id]
+      type = "AWS"
+      identifiers = [aws_cloudfront_origin_access_identity.oai.iam_arn]
     }
   }
 }
