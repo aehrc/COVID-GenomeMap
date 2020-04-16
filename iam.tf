@@ -1,3 +1,31 @@
+data aws_iam_policy_document cloudfront_website_access {
+  statement {
+    actions = [
+      "s3:GetObject",
+    ]
+    resources = [
+      "${aws_s3_bucket.website_bucket.arn}/*",
+    ]
+    principals {
+      type = "CanonicalUser"
+      identifiers = [aws_cloudfront_origin_access_identity.oai.s3_canonical_user_id]
+    }
+  }
+
+  statement {
+    actions = [
+      "s3:ListBucket",
+    ]
+    resources = [
+      aws_s3_bucket.website_bucket.arn,
+    ]
+    principals {
+      type = "CanonicalUser"
+      identifiers = [aws_cloudfront_origin_access_identity.oai.s3_canonical_user_id]
+    }
+  }
+}
+
 data aws_iam_policy_document lambda_refreshCloudfront {
   statement {
     actions = [
@@ -12,7 +40,6 @@ data aws_iam_policy_document lambda_refreshCloudfront {
 data aws_iam_policy_document data_uploader {
   statement {
     actions = [
-      "s3:PutObjectAcl",
       "s3:PutObject",
     ]
     resources = [

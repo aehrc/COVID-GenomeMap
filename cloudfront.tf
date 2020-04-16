@@ -1,7 +1,14 @@
+resource aws_cloudfront_origin_access_identity oai {
+}
+
 resource aws_cloudfront_distribution platform_distribution {
   origin {
     domain_name = aws_s3_bucket.website_bucket.bucket_regional_domain_name
     origin_id = aws_s3_bucket.website_bucket.id
+
+    s3_origin_config {
+      origin_access_identity = aws_cloudfront_origin_access_identity.oai.cloudfront_access_identity_path
+    }
   }
 
   enabled = true
