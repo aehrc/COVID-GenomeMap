@@ -6,6 +6,7 @@ output encrypted_AWS_SECRET_ACCESS_KEY {
   value = aws_iam_access_key.data_uploader.encrypted_secret
 }
 
-output website_url {
-  value = aws_s3_bucket.website_bucket.website_endpoint
+output cloudfront_domain_name {
+    value = aws_cloudfront_distribution.platform_distribution.domain_name
+    description = "URL for website hosted by cloudfront."
 }
