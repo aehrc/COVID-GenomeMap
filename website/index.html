@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
 <style> /* set the CSS */
 body { font: 12px Arial;}
 
@@ -36,11 +35,27 @@ path {
 }
 </style>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Covid19 Genomes</title>
-<meta name="keywords" content="" />
+  <!-- Primary Meta Tags -->
+  <title>COVID19 genomics platform</title>
+  <meta name="title" content="COVID19 genomics platform">
+  <meta name="description" content="Actionable insights from SARS-CoV-2 data in GISAID - a Phylogentic-free genomic distance measure for millions of individual isolates.">
 
-<meta name="description" content="" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://d1v7neu4o1h4vp.cloudfront.net/index.html">
+  <meta property="og:title" content="COVID19 genomics platform">
+  <meta property="og:description" content="Actionable insights from SARS-CoV-2 data in GISAID - a Phylogentic-free genomic distance measure for millions of individual isolates.">
+  <meta property="og:image" content="https://covid19-platform.s3-ap-southeast-2.amazonaws.com/images/COVID19_meta.png">
+
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://d1v7neu4o1h4vp.cloudfront.net/index.html">
+  <meta property="twitter:title" content="COVID19 genomics platform">
+  <meta property="twitter:description" content="Actionable insights from SARS-CoV-2 data in GISAID - a Phylogentic-free genomic distance measure for millions of individual isolates.">
+  <meta property="twitter:image" content="https://covid19-platform.s3-ap-southeast-2.amazonaws.com/images/COVID19_meta.png">
+
+
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="default.css" rel="stylesheet" type="text/css" media="all" />
 
@@ -60,7 +75,7 @@ path {
 <div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
-			<h1><a href="#">Covid19 Genomes</a></h1>
+			<h1><a href="#">Covid-19 Virus Genomes</a></h1>
 		</div>
 		<div id="menu"> <!--#unlock these comments to add menu items.-->
 			<ul>
@@ -77,21 +92,22 @@ path {
 		<div class="title">
 			<h2>Genomic Signature analysis of SARS-CoV-2</h2>
 			<span class="byline">The rapid spread and subsequent evolution of the SARS-CoV-2 virus makes it hard to apply traditional phylogenetic methods (such as trees), which are compute intensive and may overlook the more complicated relationship between viral strains such as recombination. By using alignment free approaches such as genomic signature analysis, we are able to represent the similarity of viral genomes in 2-dimensional space. This allows us to visualize the relationship between all viral strains at once. For a more detailed description of the method, see <a href="https://onlinelibrary.wiley.com/doi/10.1111/tbed.13588">Bauer et al 2020</a>. </span> </br></br>
-      <span class="byline">Here we analyze the sequences currently available from GISaid. In particular, we focus on the emergence and evolution of Australian isolates (blue samples). Data is updated regularly and contains all samples from GISaid that are isolated from human with their entire genome sequenced.  </span>
-    <div class="seq">Total sequences analysed:<font size="-2">(note there is a time lag to GISAID)</font> <object style="font: 16px Arial;" type="text/plain" data="/covid19data/dateCount.txt" width="500" height="40"></object></div>
+      <span class="byline">Here we analyze the sequences currently available from GISaid. In particular, we focus on the emergence and evolution of Australian isolates (blue samples). Data is updated regularly and contains all samples from GISaid that are isolated from human with their entire genome sequenced. Please note, that the isolate positions are relative and get updated with every new sequence added to the analysis, hence there are not fixed x-y coordinates for each isolate. </span>
+    <div class="seq">Total sequences analysed:<font size="-2">(note there is a time lag to GISAID)</font> <object style="font: 16px Arial;" type="text/plain" data="covid19data/dateCount.txt" width="500" height="40"></object></div>
     </div>
-    <div class="help-tip">
-      <p>To zoom into specific isolate - Go to GISaid and pick the accession number or pick specific isolate from table on methods page and type it in and press submit.</p>
-    </div>
+    <!-- <div class="help-tip">
+        <p>To zoom into specific isolate - Go to GISaid, pick the accession number for example "Australia/VIC01|EPI_ISL_406844|2020-01-25" and type it in and press submit. If the strain is not showing up please look through 'Methods' if it was combined with other sequences and is now called 'Combined_Sequences_(Number)'</p>
+    </div>-->
       <input type="text" id="data_id" value="Reference_Sequence" size="50">
       <button onclick="reset_clicked()">Reset</button>
       <button onclick="zoom_clicked()">Submit</button>
+      <button class="my-button" data-tooltip="To zoom into specific isolate - Go to GISaid, pick the accession number for example 'Australia/VIC01|EPI_ISL_406844|2020-01-25' and type it in and press submit. If the strain is not showing up please look through 'Methods' if it was combined with other sequences and is now called 'Combined_Sequences_(Number)'" onclick="example()">Example </button>
       <label >Zoom Scale</label>
       <input type="text" id="zoom_scale" value="350" size="4">
-    </div>
+
       <div id="container"></div>
       <div class="title"></div>
-
+    </div>
 </div>
 
 
@@ -171,7 +187,7 @@ function unique(x) {
 }
 
 // Get the data
-d3.csv("/covid19data/kmerSigs.csv").then(function(data, error) {
+d3.csv("covid19data/kmerSigs.csv").then(function(data, error) {
 
 
     // Scale the range of the data
@@ -183,7 +199,8 @@ d3.csv("/covid19data/kmerSigs.csv").then(function(data, error) {
     data.forEach(function(d,i){
       var the_id = d.id;
           the_id = the_id.replace("/", "");
-          the_id = the_id.replace("|", "");
+          the_id = the_id.replace("|", "_");
+          the_id = the_id.replace("|", "_");
       dataset.push({"PCA1": d.PCA1, "PCA2": d.PCA2, "id": the_id, "class": d.class});
     });
 
@@ -201,7 +218,8 @@ d3.csv("/covid19data/kmerSigs.csv").then(function(data, error) {
         .attr("class", function(d){
           var the_id = d.id;
           the_id = the_id.replace("/", "");
-          the_id = the_id.replace("|", "");
+          the_id = the_id.replace("|", "_");
+          the_id = the_id.replace("|", "_");
          return the_id;
        })
         .attr("data-legend",function(d) { return d.class;})
@@ -217,7 +235,8 @@ d3.csv("/covid19data/kmerSigs.csv").then(function(data, error) {
 
           var the_id = d.id;
           the_id = the_id.replace("/", "");
-          the_id = the_id.replace("|", "");
+          the_id = the_id.replace("|", "_");
+          the_id = the_id.replace("|", "_");
           document.getElementById("data_id").value = the_id;
           // d3.select(this).classed("clicked", true);
 
@@ -225,7 +244,8 @@ d3.csv("/covid19data/kmerSigs.csv").then(function(data, error) {
         .on("mouseover", function(d) {
             var the_id = d.id;
           the_id = the_id.replace("/", "");
-          the_id = the_id.replace("|", "");
+          the_id = the_id.replace("|", "_");
+          the_id = the_id.replace("|", "_");
           // d3.select(this).classed("mouseover", true);
           // d3.select(this).classed("mouseout", false);
 
@@ -309,10 +329,13 @@ d3.csv("/covid19data/kmerSigs.csv").then(function(data, error) {
 
 function filter_data(id){
   point_to_zoom_to = dataset.filter(function(d){return d.id == id;});
+  console.log(point_to_zoom_to);
   var classed = String("circle." + id);
-  // console.log(classed);
+
+  console.log(scatter.selectAll("circle"));
+  console.log(scatter.selectAll(classed));
   scatter.selectAll("circle").style("stroke", "transparent").style("opacity", 0.3);
-   scatter.selectAll(classed).style("stroke", "black").style("opacity", 1);
+  scatter.selectAll(classed).style("stroke", "black").style("opacity", 1);
 
 
 
@@ -330,13 +353,19 @@ function reset_clicked() {
     scatter.selectAll("circle").classed("clicked", false);
   }
 
-
+function example(){
+  document.getElementById("data_id").value = "Australia/VIC01|EPI_ISL_406844|2020-01-25";
+  zoom_clicked()
+}
 function zoom_clicked() {
-  console.log("zoom clicked!")
+  console.log("zoom clicked!");
+
 
   var data_id = document.getElementById("data_id").value;
-  data_id = the_id.replace("/", "");
-  data_id = the_id.replace("|", "");
+  data_id = data_id.replace("/", "");
+  data_id = data_id.replace("|", "_");
+  data_id = data_id.replace("|", "_");
+  console.log(data_id);
   selected_id = data_id;
   zoom_scale = document.getElementById("zoom_scale").value;
 
@@ -387,16 +416,6 @@ function zoomed() {
 
 </script>
 <div id="footer" class="container">
-	<div>
-		<div>
-			<h2>Get in touch</h2>
-		<ul class="contact">
-			<li><a href="#" class="icon icon-twitter"><span>Twitter</span></a></li>
-			<li><a href="#" class="icon icon-facebook"><span></span></a></li>
-			<li><a href="#" class="icon icon-dribbble"><span>Pinterest</span></a></li>
-			<li><a href="#" class="icon icon-tumblr"><span>Google+</span></a></li>
-			<li><a href="#" class="icon icon-rss"><span>Pinterest</span></a></li>
-		</ul>
-	</div>
+
 </div>
 </body>
