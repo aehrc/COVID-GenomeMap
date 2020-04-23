@@ -31,6 +31,11 @@ resource aws_cloudfront_distribution platform_distribution {
       }
     }
 
+    lambda_function_association {
+      event_type = "viewer-response"
+      lambda_arn = module.lambda_cloudfrontEdgeSecurity.function_qualified_arn
+    }
+
     viewer_protocol_policy = "redirect-to-https"
     min_ttl = 0
     default_ttl = 86400
