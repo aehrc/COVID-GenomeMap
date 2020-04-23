@@ -2,9 +2,10 @@ import json
 
 STATIC_SECURITY_HEADERS = {
     'Content-Security-Policy': '; '.join([
-        "default-src: https: 'unsafe-inline'",
+        "default-src https: 'unsafe-eval' 'unsafe-inline'",
         "frame-ancestors 'none'",
-        "object-src 'none'",
+        "img-src 'self' data:",
+        "object-src 'self'",
     ]),
     'X-XSS-Protection': '1; mode=block',
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
