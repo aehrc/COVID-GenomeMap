@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>COVID19 genomics platform</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../assets/css/default.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../assets/css/network.css" rel="stylesheet" type="text/css" media="all" />
+
+
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+</head>
+
+<body>
+
+  <div id="header-wrapper">
+  	<div id="header" class="container">
+  		<div id="logo">
+  			<h1><a href="index.html">Covid-19 Virus Genomes(under construction)</a></h1>
+  		</div>
+      <div id="menu"> <!--#unlock these comments to add menu items.-->
+  			<ul>
+  				<li ><a href="../index.html" accesskey="1" title="">Homepage</a></li>
+  				<li><a href="methods.html" accesskey="2" title="">Methods</a></li>
+          <li class="current_page_item"><a href="#" accesskey="3" title="">Network</a></li>
+  				<li><a href="contact.html" accesskey="4" title="">Contact Us</a></li>
+          <li><a href="acknowledgement.html" accesskey="5" title="">Acknowledgements</a></li>
+  			</ul>
+  		</div>
+  	</div>
+  </div>
+  <div id="wrapper">
+  	<div id="welcome" class="wrapper-style1">
+  		<div class="title">
+  			<h2>SARS-CoV-2 genome networks</h2>
+  			<span class="byline">Building upon the K-mer signature analysis we performed, we constructed a network representing the diversity among the SARS-CoV-2 genomes. Each point represents a single strain and the distance between them is the calculated euclidian distance, based on the k-mer signatures. By setting the threshold to filter out more distant relationships, we are able to investigate how the different strains are connected to each other. </span>
+      </div>
+
+<div id="bokehContainer">
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+ <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js" integrity="sha384-JpP8FXbgAZLkfur7LiK3j9AGBhHNIvF742meBJrjO2ShJDhCG2I1uVvW+0DUtrmc" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.1.min.js" integrity="sha384-xZlADit0Q04ISQEdKg2k3L4W9AwQBAuDs9nJL9fM/WwzL1tEU9VPNezOFX0nLEAz" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://unpkg.com/@holoviz/panel@^0.9.5/dist/panel.min.js" integrity="sha384-" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+
+
+
+
+<div style="background-color:lightgray;padding:10px;" class="bk-root" id="9919267e-6877-44a5-957e-449bc47bb1da" data-root-id="1001"></div>
+
+
+
+<div style="background-color:lightgray;padding:10px;" id="735f69e2-820e-44c2-87ec-7591e7402a68" data-root-id="1108"></div>
+
+
+<script type="text/javascript">
+
+
+var docs_json;
+
+d3.json("/covid19data/network.json").then(function(data) {
+
+  docs_json = data;
+
+            Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+
+                  // var docs_json = document.getElementById('1291').textContent;
+                  var render_items = [{"docid":"ab616723-f9b9-4ea2-8103-0215e97e6b8d","root_ids":["1001","1108"],"roots":{"1001":"9919267e-6877-44a5-957e-449bc47bb1da","1108":"735f69e2-820e-44c2-87ec-7591e7402a68"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+});
+
+
+
+
+
+
+
+
+</script>
+</div>
+<div class="title"></div>
+</div>
+</div>
+<div id="footer" class="container">
+
+</div>
+
+  </body>

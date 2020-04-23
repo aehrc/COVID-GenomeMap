@@ -1528,8 +1528,9 @@ body
 {
 	margin: 0;
 	padding: 0;
-	background: #2F2F2F url(images/bg02.jpg) repeat;
+	background: #2F2F2F url(../images/bg02.jpg) repeat;
 	font-family: 'Source Sans Pro', sans-serif;
+	font: 12px Arial;
 	font-size: 12pt;
 	font-weight: 300;
 	color: #5B5B5B;
@@ -1612,6 +1613,37 @@ hr
 	display: none;
 }
 
+path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.legend rect {
+  fill:white;
+  stroke:black;
+  opacity:0.8;}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+   /* width: 60px;   */
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
 .title
 {
 	border-bottom: solid 1px #dbdbdb;
@@ -1801,7 +1833,7 @@ ul.contact li a.icon-rss:before
 
 /** WRAPPER */
 #bokehContainer{
-		background: #2F2F2F url(images/bg01.jpg) repeat;
+		background: #2F2F2F url(../images/bg01.jpg) repeat;
 }
 #wrapper
 {
@@ -1812,7 +1844,7 @@ ul.contact li a.icon-rss:before
 {
 	overflow:  hidden;
 	padding: 5em 0em;
-	background: url(images/bg01.jpg) repeat;
+	background: url(../images/bg01.jpg) repeat;
 	box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.05), inset 0px 4px 15px 0px rgba(0,0,0,0.1);
 }
 
@@ -1901,7 +1933,7 @@ ul.contact li a.icon-rss:before
 #header-wrapper
 {
 	overflow: hidden;
-	background: url(images/header.jpg) no-repeat right bottom;
+	background: url(../images/header.jpg) no-repeat right bottom;
 	background-size: contain;
 }
 
