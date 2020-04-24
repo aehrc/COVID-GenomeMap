@@ -20,21 +20,24 @@
   <meta property="twitter:description" content="Actionable insights from SARS-CoV-2 data in GISAID - a Phylogentic-free genomic distance measure for millions of individual isolates.">
   <meta property="twitter:image" content="https://covid19-platform.s3-ap-southeast-2.amazonaws.com/images/COVID19_meta.png">
 
-
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';  font-src 'self'; img-src 'self'; object-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self'">
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
 <link href="assets/css/default.css" rel="stylesheet" type="text/css" media="all" />
 
-<script type="text/javascript" src="assets/js/scatterplot.js"></script>
+<!-- load the d3.js library -->
+<script type="text/javascript" src="assets/js/d3.min.js"></script>
+<script type="text/javascript" src="assets/js/d3.v5.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery-1.11.2.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" integrity="sha384-N8EP0Yml0jN7e0DcXlZ6rt+iqKU9Ck6f1ZQ+j2puxatnBq4k9E8Q6vqBcY34LNbn" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v5.min.js" integrity="sha384-M06Cb6r/Yrkprjr7ngOrJlzgekrkkdmGZDES/SUnkUpUol0/qjsaQWQfLzq0mcfg" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha384-Pn+PczAsODRZ2PiGg0IheRROpP7lXO1NTIjiPo6cca8TliBvaeil42fobhzvZd74" crossorigin="anonymous"></script>-->
+
 <!--[if IE 6]>
 <link href="default_ie6.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 </head>
 <body>
 
-<!-- load the d3.js library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" integrity="sha384-N8EP0Yml0jN7e0DcXlZ6rt+iqKU9Ck6f1ZQ+j2puxatnBq4k9E8Q6vqBcY34LNbn" crossorigin="anonymous"></script>
-<script src="https://d3js.org/d3.v5.min.js" integrity="sha384-M06Cb6r/Yrkprjr7ngOrJlzgekrkkdmGZDES/SUnkUpUol0/qjsaQWQfLzq0mcfg" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.11.2.min.js" integrity="sha384-Pn+PczAsODRZ2PiGg0IheRROpP7lXO1NTIjiPo6cca8TliBvaeil42fobhzvZd74" crossorigin="anonymous"></script>
 
 
 <div id="header-wrapper">
@@ -45,10 +48,10 @@
 		<div id="menu"> <!--#unlock these comments to add menu items.-->
 			<ul>
 				<li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
-				<li><a href="views/methods.html" accesskey="2" title="">Methods</a></li>
-        <li><a href="views/network.html" accesskey="3" title="">Network</a></li>
-				<li><a href="views/contact.html" accesskey="4" title="">Contact Us</a></li>
-        <li><a href="views/acknowledgement.html" accesskey="5" title="">Acknowledgements</a></li>
+				<li><a href="methods.html" accesskey="2" title="">Methods</a></li>
+        <li><a href="network.html" accesskey="3" title="">Network</a></li>
+				<li><a href="contact.html" accesskey="4" title="">Contact Us</a></li>
+        <li><a href="acknowledgement.html" accesskey="5" title="">Acknowledgements</a></li>
 			</ul>
 		</div>
 	</div>
@@ -72,6 +75,7 @@
       <input type="text" id="zoom_scale" value="350" size="4">
 
       <div id="container"></div>
+      <script type="text/javascript" src="assets/js/scatterplot.js"></script>
       <div class="title"></div>
     </div>
 </div>

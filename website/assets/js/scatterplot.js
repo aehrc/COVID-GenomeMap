@@ -72,7 +72,7 @@ function unique(x) {
 }
 
 // Get the data
-d3.csv("covid19data/kmerSigs.csv").then(function(data, error) {
+d3.csv("../../covid19data/kmerSigs.csv").then(function(data, error) {
 
 
     // Scale the range of the data
