@@ -58,9 +58,9 @@
         <p>To zoom into specific isolate - Go to GISaid, pick the accession number for example "Australia/VIC01|EPI_ISL_406844|2020-01-25" and type it in and press submit. If the strain is not showing up please look through 'Methods' if it was combined with other sequences and is now called 'Combined_Sequences_(Number)'</p>
     </div>-->
       <input type="text" id="data_id" value="Reference_Sequence" size="50">
-      <button onclick="reset_clicked()">Reset</button>
-      <button onclick="zoom_clicked()">Submit</button>
-      <button class="my-button" data-tooltip="To zoom into specific isolate - Go to GISaid, pick the accession number for example 'Australia/VIC01|EPI_ISL_406844|2020-01-25' and type it in and press submit. If the strain is not showing up please look through 'Methods' if it was combined with other sequences and is now called 'Combined_Sequences_(Number)'" onclick="example()">Example </button>
+      <button id="reset">Reset</button>
+      <button id="submit">Submit</button>
+      <button id="example" class="my-button" data-tooltip="To zoom into specific isolate - Go to GISaid, pick the accession number for example 'Australia/VIC01|EPI_ISL_406844|2020-01-25' and type it in and press submit. If the strain is not showing up please look through 'Methods' if it was combined with other sequences and is now called 'Combined_Sequences_(Number)'" >Example </button>
       <label >Zoom Scale</label>
       <input type="text" id="zoom_scale" value="350" size="4">
 

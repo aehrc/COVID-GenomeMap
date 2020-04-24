@@ -226,6 +226,8 @@ function filter_data(id){
 
   }
 
+document.getElementById("reset").addEventListener("click", reset_clicked);
+
 function reset_clicked() {
   console.log("reset clicked!")
     rect.transition().duration(750).call(
@@ -238,10 +240,12 @@ function reset_clicked() {
     scatter.selectAll("circle").classed("clicked", false);
   }
 
+document.getElementById("example").addEventListener("click", example);
 function example(){
   document.getElementById("data_id").value = "Australia/VIC01|EPI_ISL_406844|2020-01-25";
   zoom_clicked()
 }
+document.getElementById("submit").addEventListener("click", zoom_clicked);
 function zoom_clicked() {
   console.log("zoom clicked!");
 
