@@ -17,7 +17,6 @@ STATIC_SECURITY_HEADERS = {
         ]),
         "style-src 'self'",
         "style-src-elem 'self'",
-        "style-src 'self'", 
     ]),
     'Referrer-Policy': 'no-referrer',
     'X-XSS-Protection': '1; mode=block',
