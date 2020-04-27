@@ -15,6 +15,7 @@ STATIC_SECURITY_HEADERS = {
             "'self'",
             "'unsafe-eval'",
         ]),
+        "style-src 'self'",
         "style-src-elem 'self'",
     ]),
     'Referrer-Policy': 'no-referrer',
