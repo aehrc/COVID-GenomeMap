@@ -1661,7 +1661,7 @@ path {
 
 .title h2
 {
-	margin: 0 0 1em 0;
+	margin: 0 0 0em 0;
 	font-weight: 700;
 }
 
@@ -1674,6 +1674,11 @@ path {
 	font-size: 1em;
 	color: #8E8E8E;
 	font: 16px Arial;
+}
+
+#gisaid_logo{
+	width: 7%;
+	height:7%;
 }
 .seq
 {
