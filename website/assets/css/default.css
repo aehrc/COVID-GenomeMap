@@ -1661,6 +1661,11 @@ path {
 
 .title h2
 {
+	margin: 0 0 1em 0;
+	font-weight: 700;
+}
+#withSubheader
+{
 	margin: 0 0 0em 0;
 	font-weight: 700;
 }
