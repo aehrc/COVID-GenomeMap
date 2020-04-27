@@ -2,11 +2,22 @@ import json
 
 STATIC_SECURITY_HEADERS = {
     'Content-Security-Policy': '; '.join([
-        "default-src https: 'unsafe-eval' 'unsafe-inline'",
+        "base-uri 'none'",
+        "connect-src 'self'",
+        "default-src 'none'",
+        "font-src 'self'",
+        "form-action https://gmail.us3.list-manage.com/subscribe/post",
         "frame-ancestors 'self'",
-        "img-src 'self' data:",
+        "frame-src 'self'",
+        "img-src 'self'",
         "object-src 'self'",
+        "script-src " + " ".join([
+            "'self'",
+            "'unsafe-eval'",
+        ]),
+        "style-src-elem 'self'",
     ]),
+    'Referrer-Policy': 'no-referrer',
     'X-XSS-Protection': '1; mode=block',
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Frame-Options': 'SAMEORIGIN',
