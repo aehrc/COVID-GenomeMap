@@ -9,6 +9,7 @@ locals {
     "svg" = "image/svg"
     "ttf" = "font/ttf"
     "woff" = "font/woff"
+    "png" = "image/png"
   }
 }
 
