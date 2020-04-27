@@ -17,6 +17,7 @@ STATIC_SECURITY_HEADERS = {
         ]),
         "style-src-elem 'self'",
     ]),
+    'Referrer-Policy': 'no-referrer',
     'X-XSS-Protection': '1; mode=block',
     'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
     'X-Frame-Options': 'SAMEORIGIN',
