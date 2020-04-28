@@ -11,10 +11,7 @@ STATIC_SECURITY_HEADERS = {
         "frame-src 'self'",
         "img-src 'self'",
         "object-src 'self'",
-        "script-src " + " ".join([
-            "'self'",
-            "'unsafe-eval'",
-        ]),
+        "script-src 'self'",
         "style-src 'self'",
         "style-src-elem 'self'",
     ]),

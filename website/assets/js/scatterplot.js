@@ -72,7 +72,18 @@ function unique(x) {
 }
 
 // Get the data
-d3.csv("../../covid19data/kmerSigs.csv").then(function(data, error) {
+$.ajax({
+    url: '../../covid19data/kmerSigs.csv',
+    type: 'get',
+    success: function(csv_string) {
+        var data_a = d3.csvParseRows(csv_string);
+        var data_headers = data_a.shift();
+        var data = data_a.map(function (row_array) {
+            return data_headers.reduce(function (row_obj, val, header_i) {
+                row_obj[val] = row_array[header_i];
+                return row_obj;
+            }, {});
+        });
 
 
     // Scale the range of the data
@@ -209,6 +220,7 @@ d3.csv("../../covid19data/kmerSigs.csv").then(function(data, error) {
       zoom_clicked();
 
 
+    }
 });
 
 
