@@ -15,13 +15,13 @@ STATIC_SECURITY_HEADERS = {
         "style-src 'self'",
         "style-src-elem 'self'",
     ]),
-    'Referrer-Policy': 'no-referrer',
-    'X-XSS-Protection': '1; mode=block',
-    'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
-    'X-Frame-Options': 'SAMEORIGIN',
     'Expect-CT': 'Expect-CT: max-age=604800, enforce',
-    'X-Content-Type-Options': 'nosniff',
     'Feature-Policy': "autoplay 'none'; camera 'none'; microphone 'none'",
+    'Referrer-Policy': 'no-referrer',
+    'Strict-Transport-Security': 'max-age=63072000; includeSubDomains; preload',
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'SAMEORIGIN',
+    'X-XSS-Protection': '1; mode=block',
 }
 
 
