@@ -11,6 +11,11 @@ variable max_web_requests_per_ip_in_five_minutes {
   default = 300
 }
 
+variable production {
+  type = bool
+  default = false
+}
+
 variable pgp_public_key {
   description = "public pgp key file for encrypting the secret access key output value"
 }
