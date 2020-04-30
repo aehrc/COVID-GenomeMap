@@ -14,7 +14,7 @@ locals {
 }
 
 resource aws_s3_bucket website_bucket {
-  bucket = "covid19-platform"
+  bucket = var.production == true ? "covid19-platform" : "covid19-platform-dev"
 
   versioning {
     enabled = true

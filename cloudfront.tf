@@ -44,7 +44,7 @@ resource aws_cloudfront_distribution platform_distribution {
 
     viewer_protocol_policy = "redirect-to-https"
     min_ttl = 0
-    default_ttl = 86400
+    default_ttl = var.production == true ? 86400 : 0
     max_ttl = 31536000
   }
 
