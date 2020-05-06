@@ -1,6 +1,7 @@
 bucket_name = "covid19-platform"
-domain_name = "d1v7neu4o1h4vp.cloudfront.net"
+domain_name = "covid19genomes.csiro.au"
 pgp_public_key = "pub_key.gpg"
+production = true
 to_upload = [
   "covid19data/*",
 ]
