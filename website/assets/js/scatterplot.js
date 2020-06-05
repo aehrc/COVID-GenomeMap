@@ -106,6 +106,8 @@ $.ajax({
           var auth = d.authors;
           var acc = d.accession;
           var col_date = d.collection_date_dt;
+          var clade = d.clade;
+          var lin = d.lineage;
           if(d.id.startsWith("CombinedSequences")) {
             subm_lab = "Refer methods Page";
             orig_lab = "Refer methods Page";
@@ -114,7 +116,7 @@ $.ajax({
           }
 
 
-          dataset.push({"PCA1": d.PCA1, "PCA2": d.PCA2, "id": the_id, "subm_lab": subm_lab, "orig_lab": orig_lab, "accession": acc, "authors": auth,"collection_date": col_date, "class": d.class});
+          dataset.push({"PCA1": d.PCA1, "PCA2": d.PCA2, "id": the_id, "subm_lab": subm_lab, "orig_lab": orig_lab, "accession": acc, "authors": auth,"collection_date": col_date,"clade": clade,"lineage":lin, "class": d.class});
         });
 
 
@@ -188,13 +190,15 @@ $.ajax({
                   orig_lab = orig_lab.replace("|", "_");
               var auth = d.authors;
               var col_date = d.collection_date_dt;
+              var clade = d.clade;
+              var lin = d.lineage;
               if(d.id.startsWith("CombinedSequences")) {
                 subm_lab = "Refer methods Page";
                 orig_lab = "Refer methods Page";
                 auth = "Refer methods Page";
                 col_date = "Refer methods Page";
               }
-              var vis_val = "<b>Accession: </b>"+ acc +"<br><br>"+ "<b>Authors: </b>"+ auth +"<br><br>"+ "<b>Originating Lab: </b>"+ orig_lab +"<br><br>"+ "<b>Submitting Lab: </b>"+ subm_lab +"<br><br>"+ "<b>Collection Date: </b>"+col_date;
+              var vis_val = "<b>Accession: </b>"+ acc +"<br><br>"+ "<b>Authors: </b>"+ auth +"<br><br>"+ "<b>Originating Lab: </b>"+ orig_lab +"<br><br>"+ "<b>Submitting Lab: </b>"+ subm_lab +"<br><br>"+ "<b>Collection Date: </b>"+col_date +"<br><br>"+ "<b>Lineage (Clade): </b>" +lin+"("+clade+")";
               // d3.select(this).classed("mouseover", true);
               // d3.select(this).classed("mouseout", false);
 
