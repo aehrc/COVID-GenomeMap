@@ -1519,6 +1519,8 @@
 	content: "\f0ed";
 }
 
+
+
 html, body
 {
 	height: 100%;
@@ -1635,7 +1637,7 @@ path {
     position: absolute;
     text-align: center;
    /* width: 60px;   */
-    height: 28px;
+    /*height: 60px;*/
     padding: 2px;
     font: 12px sans-serif;
     background: lightsteelblue;
@@ -1680,10 +1682,20 @@ path {
 	color: #8E8E8E;
 	font: 16px Arial;
 }
+.bylineAck{
+	width : 60%;
+		position: relative;
+		top: -2em;
+		text-align: right !important;
+		font-weight: 600;
+		font-size: 1em;
+		color: #8E8E8E;
+		font: 16px Arial;
+}
 
 #gisaid_logo{
-	width: 7%;
-	height:7%;
+	width: 8%;
+	height:8%;
 }
 .seq
 {
@@ -1942,7 +1954,7 @@ ul.contact li a.icon-rss:before
 #header-wrapper
 {
 	overflow: hidden;
-	background: url(../images/header.png) no-repeat right bottom;
+	background: url(../images/header.png) no-repeat right;
 	background-size: contain;
 }
 
@@ -2088,10 +2100,9 @@ ul.contact li a.icon-rss:before
 
 #footer
 {
+	height:2em;
 	overflow: hidden;
-	padding: 5em 0em;
-	text-align: center;
-	text-transform: uppercase;
+	padding: 0.5em 0em;
 	color: #6F6F6F;
 }
 
@@ -2105,7 +2116,15 @@ ul.contact li a.icon-rss:before
 
 #footer .byline
 {
-
+	padding-left: 2em;
+	text-align: left;
+	padding-bottom: 1.50em;
+	letter-spacing: 0.10em;
+}
+#footer .privacy
+{
+	padding-left: 2em;
+	text-align: right;
 	padding-bottom: 1.50em;
 	letter-spacing: 0.10em;
 }
@@ -2127,7 +2146,7 @@ ul.contact li a.icon-rss:before
 	padding: 0em 2em;
 	top: -2em;
 	letter-spacing: 0.15em;
-	text-transform: uppercase;
+
 	font-weight: 400;
 	font-size: 0.90em;
 	color: #6F6F6F;

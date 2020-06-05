@@ -1,0 +1,40 @@
+<div class="table-responsive-md">
+  <table border="1" class=" table table-striped table-bordered table-hover" id="methodsTab" fixed-header>
+      <thead>
+          <tr>
+              <th>Name of the new combined sequences</th>
+              <th>Number of sequences merged</th>
+              <th>Names of the different strains merged</th>
+              <th>Acknowledgements</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in items "  id="sameStrip">
+          <td>{{row[0]}}</td>
+          <td>{{row[1]}}</td>
+          <td>{{row[2]}}</td>
+          <td>
+  						<div class="modal-header">
+  							<button type="button" class="btn btn-primary"
+  							data-toggle="modal" data-target="#dialogTestDialog{{$index}}" ">Acknowledgements</button>
+  						</div>
+  						<div   class="modal fade" id="dialogTestDialog{{$index}}" tabindex="-1" role="dialog" aria-labelledby="executionOptionLabel"
+                                  aria-hidden="true">
+                              <div class="modal-dialog">
+                                  <div class="modal-content">
+                                          <b>Authors</b>
+                                          <div class="modal-body">{{row[6]}}</div>
+                                          <b>Originating Lab</b>
+                                          <div class="modal-body">{{row[4]}}</div>
+                                          <b>Submitting Lab</b>
+                                          <div class="modal-body">{{row[5]}}</div>
+                                          <b>Collection Date</b>
+                                          <div class="modal-body">{{row[3]}}</div>
+                                  </div>
+                              </div>
+                          </div>
+  					</td>{{$index}}
+        </tr>
+      </tbody>
+  </table>
+</div>
