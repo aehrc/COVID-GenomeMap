@@ -1519,6 +1519,8 @@
 	content: "\f0ed";
 }
 
+
+
 html, body
 {
 	height: 100%;
@@ -1633,9 +1635,9 @@ path {
 
 .tooltip {
     position: absolute;
-    text-align: center;
+    text-align: left;
    /* width: 60px;   */
-    height: 28px;
+    /*height: 60px;*/
     padding: 2px;
     font: 12px sans-serif;
     background: lightsteelblue;
@@ -1679,6 +1681,16 @@ path {
 	font-size: 1em;
 	color: #8E8E8E;
 	font: 16px Arial;
+}
+.bylineAck{
+	width : 60%;
+		position: relative;
+		top: -2em;
+		text-align: right !important;
+		font-weight: 600;
+		font-size: 1em;
+		color: #8E8E8E;
+		font: 16px Arial;
 }
 
 #gisaid_logo{
@@ -1942,7 +1954,7 @@ ul.contact li a.icon-rss:before
 #header-wrapper
 {
 	overflow: hidden;
-	background: url(../images/header.png) no-repeat right bottom;
+	background: url(../images/header.png) no-repeat right;
 	background-size: contain;
 }
 

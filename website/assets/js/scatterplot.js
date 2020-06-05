@@ -94,10 +94,27 @@ $.ajax({
 
         data.forEach(function(d,i){
           var the_id = d.id;
-              the_id = the_id.replace("/", "");
+              the_id = the_id.replace("/", "_");
+              the_id = the_id.replace("/", "_");
+              the_id = the_id.replace("/", "_");
               the_id = the_id.replace("|", "_");
               the_id = the_id.replace("|", "_");
-          dataset.push({"PCA1": d.PCA1, "PCA2": d.PCA2, "id": the_id, "class": d.class});
+          var subm_lab = d.subm_lab;
+              subm_lab = subm_lab.replace("|", "_");
+          var orig_lab = d.orig_lab;
+              orig_lab = orig_lab.replace("|", "_");
+          var auth = d.authors;
+          var acc = d.accession;
+          var col_date = d.collection_date_dt;
+          if(d.id.startsWith("CombinedSequences")) {
+            subm_lab = "Refer methods Page";
+            orig_lab = "Refer methods Page";
+            auth = "Refer methods Page";
+            col_date = "Refer methods Page";
+          }
+
+
+          dataset.push({"PCA1": d.PCA1, "PCA2": d.PCA2, "id": the_id, "subm_lab": subm_lab, "orig_lab": orig_lab, "accession": acc, "authors": auth,"collection_date": col_date, "class": d.class});
         });
 
 
@@ -113,9 +130,26 @@ $.ajax({
             .attr("cy", function(d) { return y(d.PCA2); })
             .attr("class", function(d){
               var the_id = d.id;
-              the_id = the_id.replace("/", "");
-              the_id = the_id.replace("|", "_");
-              the_id = the_id.replace("|", "_");
+
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("|", "_");
+                  the_id = the_id.replace("|", "_");
+              /*var acc = d.accession;
+              var subm_lab = d.subm_lab;
+                  subm_lab = subm_lab.replace("|", "_");
+              var orig_lab = d.orig_lab;
+                  orig_lab = orig_lab.replace("|", "_");
+              var auth = d.authors;
+              var col_date = d.collection_date_dt;
+              if(d.id.startsWith("CombinedSequences")) {
+                subm_lab = "Refer methods Page";
+                orig_lab = "Refer methods Page";
+                auth = "Refer methods Page";
+                col_date = "Refer methods Page";
+              }
+              var vis_val = "Accession: "+ acc +"<br>"+ "Authors: "+ auth +"<br>"+ "Orig. Lab: "+ orig_lab +"<br>"+ "Subm. Lab: "+ subm_lab +"<br>"+ "Collection Date: "+col_date;*/
              return the_id;
            })
             .attr("data-legend",function(d) { return d.class;})
@@ -130,18 +164,37 @@ $.ajax({
               d3.select(this).style("opacity", 1);
 
               var the_id = d.id;
-              the_id = the_id.replace("/", "");
-              the_id = the_id.replace("|", "_");
-              the_id = the_id.replace("|", "_");
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("|", "_");
+                  the_id = the_id.replace("|", "_");
+
               document.getElementById("data_id").value = the_id;
               // d3.select(this).classed("clicked", true);
 
             })
             .on("mouseover", function(d) {
-                var the_id = d.id;
-              the_id = the_id.replace("/", "");
-              the_id = the_id.replace("|", "_");
-              the_id = the_id.replace("|", "_");
+              var the_id = d.id;
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("/", "_");
+                  the_id = the_id.replace("|", "_");
+                  the_id = the_id.replace("|", "_");
+              var acc = d.accession;
+              var subm_lab = d.subm_lab;
+                  subm_lab = subm_lab.replace("|", "_");
+              var orig_lab = d.orig_lab;
+                  orig_lab = orig_lab.replace("|", "_");
+              var auth = d.authors;
+              var col_date = d.collection_date_dt;
+              if(d.id.startsWith("CombinedSequences")) {
+                subm_lab = "Refer methods Page";
+                orig_lab = "Refer methods Page";
+                auth = "Refer methods Page";
+                col_date = "Refer methods Page";
+              }
+              var vis_val = "<b>Accession: </b>"+ acc +"<br><br>"+ "<b>Authors: </b>"+ auth +"<br><br>"+ "<b>Originating Lab: </b>"+ orig_lab +"<br><br>"+ "<b>Submitting Lab: </b>"+ subm_lab +"<br><br>"+ "<b>Collection Date: </b>"+col_date;
               // d3.select(this).classed("mouseover", true);
               // d3.select(this).classed("mouseout", false);
 
@@ -150,9 +203,9 @@ $.ajax({
                 div.transition()
                     .duration(200)
                     .style("opacity", .9);
-                div .html(the_id)
+                div .html(vis_val)
                     .style("left", (d3.event.pageX ) + "px")
-                    .style("top", (d3.event.pageY - 30) + "px");
+                    .style("top", (d3.event.pageY - 10) + "px");
                 })
             .on("mouseout", function(d) {
                 var item_class = d3.select(this).attr("class");
@@ -251,8 +304,9 @@ function reset_clicked() {
   }
 
 document.getElementById("example").addEventListener("click", example);
+
 function example(){
-  document.getElementById("data_id").value = "Australia/VIC01|EPI_ISL_406844|2020-01-25";
+  document.getElementById("data_id").value = "EPI_ISL_406844|hCoV-19/Australia/VIC01/2020";
   zoom_clicked()
 }
 document.getElementById("submit").addEventListener("click", zoom_clicked);
@@ -261,7 +315,10 @@ function zoom_clicked() {
 
 
   var data_id = document.getElementById("data_id").value;
-  data_id = data_id.replace("/", "");
+
+  data_id = data_id.replace("/", "_");
+  data_id = data_id.replace("/", "_");
+  data_id = data_id.replace("/", "_");
   data_id = data_id.replace("|", "_");
   data_id = data_id.replace("|", "_");
   console.log(data_id);
