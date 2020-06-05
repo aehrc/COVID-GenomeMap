@@ -1635,7 +1635,7 @@ path {
 
 .tooltip {
     position: absolute;
-    text-align: center;
+    text-align: left;
    /* width: 60px;   */
     /*height: 60px;*/
     padding: 2px;
