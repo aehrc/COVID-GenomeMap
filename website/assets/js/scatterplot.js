@@ -198,7 +198,7 @@ $.ajax({
                 auth = "Refer methods Page";
                 col_date = "Refer methods Page";
               }
-              var vis_val = "<b>Accession: </b>"+ acc +"<br><br>"+ "<b>Authors: </b>"+ auth +"<br><br>"+ "<b>Originating Lab: </b>"+ orig_lab +"<br><br>"+ "<b>Submitting Lab: </b>"+ subm_lab +"<br><br>"+ "<b>Collection Date: </b>"+col_date +"<br><br>"+ "<b>Lineage (Clade): </b>" +lin+"("+clade+")";
+              var vis_val = "<b>Accession: </b>"+ acc +"<br><br>"+ "<b>Authors: </b>"+ auth +"<br><br>"+ "<b>Originating Lab: </b>"+ orig_lab +"<br><br>"+ "<b>Submitting Lab: </b>"+ subm_lab +"<br><br>"+ "<b>Collection Date: </b>"+col_date +"<br><br>"+ "<b>Lineage (Clade): </b>" +lin+" ("+clade+")";
               // d3.select(this).classed("mouseover", true);
               // d3.select(this).classed("mouseout", false);
 
