@@ -116,6 +116,7 @@ $.ajax({
           }
 
 
+
           dataset.push({"PCA1": d.PCA1, "PCA2": d.PCA2, "id": the_id, "subm_lab": subm_lab, "orig_lab": orig_lab, "accession": acc, "authors": auth,"collection_date": col_date,"clade": clade,"lineage":lin, "class": d.class});
         });
 
@@ -193,6 +194,12 @@ $.ajax({
               var clade = d.clade;
               var lin = d.lineage;
               if(d.id.startsWith("CombinedSequences")) {
+                subm_lab = "Refer methods Page";
+                orig_lab = "Refer methods Page";
+                auth = "Refer methods Page";
+                col_date = "Refer methods Page";
+              }
+              if(d.id.startsWith("Reference")) {
                 subm_lab = "Refer methods Page";
                 orig_lab = "Refer methods Page";
                 auth = "Refer methods Page";

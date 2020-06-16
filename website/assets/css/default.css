@@ -1682,8 +1682,9 @@ path {
 	color: #8E8E8E;
 	font: 16px Arial;
 }
+
 .bylineAck{
-	width : 60%;
+		width : 60%;
 		position: relative;
 		top: -2em;
 		text-align: right !important;
@@ -2103,7 +2104,7 @@ ul.contact li a.icon-rss:before
 	height:2em;
 	overflow: hidden;
 	padding: 0.5em 0em;
-	color: #6F6F6F;
+	color: #FFFFFF;
 }
 
 #footer h2
@@ -2137,7 +2138,7 @@ ul.contact li a.icon-rss:before
 
 #footer a
 {
-	color: #7F7F7F;
+	color: #FFFFFF;
 }
 
 #footer header .byline
@@ -2149,7 +2150,7 @@ ul.contact li a.icon-rss:before
 
 	font-weight: 400;
 	font-size: 0.90em;
-	color: #6F6F6F;
+	color: #FFFFFF;
 }
 
 #welcome
